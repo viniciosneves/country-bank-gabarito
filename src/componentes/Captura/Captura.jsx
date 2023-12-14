@@ -22,6 +22,14 @@ const Captura = ({ aoCapturar }) => {
         setCapturando(false)
         console.log('foto tirada');
     }
+
+    const manipularErroCaptura = (erro) => {
+      if (erro.message == 'Permission denied') {
+        debugger
+      }
+      setCapturando(false)
+    }
+
     return (<Container>
         
         <p>Clique no quadro abaixo para capturarmos uma imagem sua!</p>
@@ -31,6 +39,7 @@ const Captura = ({ aoCapturar }) => {
         </BtnIcon>}
 
         {capturando && <Camera
+            onCameraError={manipularErroCaptura}
             onTakePhoto={aoTirarFoto}
         />}
 

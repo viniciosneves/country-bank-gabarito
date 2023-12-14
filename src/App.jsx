@@ -68,7 +68,8 @@ function App() {
           Reconhecimento facial
         </h2>
         <Captura aoCapturar={setFotoCapturada}/>
-        <MensagemSucesso />
+
+        {fotoCapturada && <MensagemSucesso />}
 
         <form onSubmit={enviarCadastro}>
           <Botao 
